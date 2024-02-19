@@ -1,12 +1,21 @@
 package com.akay.jobapplication.job;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "job_table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+    }
 
     public Long getId() {
         return id;
@@ -40,6 +49,30 @@ public class Job {
         this.description = description;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
+        this.location = location;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setMinSalary(String minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public void setMaxSalary(String maxSalary) {
+        this.maxSalary = maxSalary;
+    }
+
+    public void setLocation(String location) {
         this.location = location;
     }
 }
